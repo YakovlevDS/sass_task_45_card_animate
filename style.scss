@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Marck+Script|Ubuntu');
+body {font-family: 'Ubuntu', sans-serif}
+
+/*%%%%%%%%%%%%%
+%% VARIABLES %%
+%%%%%%%%%%%%%*/
+$f_color: #ff6b6b; /*%% First Color %%*/
+$s_color: #576574; /*%% Second Color %%*/
+$social_color: #fff; /*%% Social Icons Color %%*/
+$duration: 0.5s;
+$title_font: 'Marck Script', cursive;
+
+/*%% Box background color %%*/
+$container_bg: linear-gradient(to right, $s_color, #f1f2f6);
+
+.box-container {
+  display: flex;
+  width: 100%; height: 100vh;
+  flex-flow: row nowrap;
+  justify-content: center; 
+  align-items: center;
+  background: $container_bg;
+  
+  /*%%%%%%%%
+  %% CARD %%
+  %%%%%%%%*/
+  .card {
+    position: relative;
+    width: 300px; height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f5f6fa;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%; height: 0;
+      background: linear-gradient(to bottom, $f_color, $s_color);
+      transition: all $duration ease;
+    }
+    &:hover { /*%% Card on hover %%*/
+      &:before {height: 180px}
+      .social {margin-top: 50px}
+      .pic {
+        width: 120px; height: 120px; margin-top: 50px;
+        box-shadow: 0px 0px 10px 1px #888; 
+      }
+      .content {margin-top: 90px}
+    }
+    .social {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; height: 0;
+      margin-top: -30px;
+      text-align: center;
+      transition: margin-top $duration ease;
+      a {
+        text-decoration: none;
+        color: #2d3436;
+        padding: 8px;
+        font-size: 18px;
+        color: $social_color;
+      }
+    }
+    .pic {
+      position: relative;
+      left: 50%; top: 15%;
+      transform: translateX(-50%);
+      width: 140px; height: 140px;
+      overflow: hidden;
+      transition: all $duration ease;
+      border-radius: 50%;
+      background: #fff;
+      img {
+        width: 100%; height: 100%;
+        border-radius: 50%;
+      }
+    }
+    .content {
+      margin-top: 90px;
+      text-align: center;
+      padding: 0 30px;
+      color: #2d3436;
+      transition: margin-top $duration ease;
+      .title {
+        margin-bottom: 0;
+        font-family: $title_font;
+        font-size: 22px;
+      }
+      span {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+      }
+      p {
+        margin: 20px 0;
+        font-size: 12px;
+        line-height: 1.6;
+        color: #b0b0b0;
+      }
+    }
+  }/*%% End card %%*/
+  
+}/*%% End container %%*/
